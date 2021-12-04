@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+header{
+    width: 100%;
+    
+}
+/* #fond{
+ 
+    height:70vh;
+    display:flex;
+    align-items:center;
+    background-size:cover;
+    background-position-y:center;
+} */
+body{
+    background-color:#fff;
+    font-family: 'Poppins', sans-serif;
+    /* padding-bottom: 50px; */
+  
+  
+}
+
+/* carousel */
+
+.carousel-item {
+  
+    min-height: 500px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-top: 40px;
+  }
+.carousel-inner{
+    border-radius: 20px;
+
+  }
+#bouton-fruits, #bouton-légumes{
+    color:#fff;
+    width: 150px;
+    height: 48px;
+    background-color:#55ac56;
+    border-radius: 10px;
+    margin: 5px;
+   
+
+}
+/* carousel finich */
+
+/*titre*/
+#titre{
+    color:#556f2b;;
+    text-align: center;
+    font-size: 4em;
+    font-family: 'Times New Roman', Times, serif;
+    padding:20px;
+    font-weight: 700;
+}
+/*
+flip card
+*/
+.card{
+    margin-bottom: 30px;
+}
+.card-flip > div {
+    backface-visibility: hidden;
+    transition: transform 300ms;
+    transition-timing-function: linear;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+  }
+  
+  .card-front {
+    transform: rotateY(0deg);
+  }
+  
+  .card-back {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .card-flip:hover .card-front {
+    transform: rotateY(-180deg);
+  }
+    
+  .card-flip:hover .card-back {
+    transform: rotateY(0deg);
+  }
+
+.h-100{
+    min-height: 25vh!important;
+}
+
+.card-body{
+    padding: 0!important;
+    background-color: RGBA(177,211,181,1);
+  }
+  .card-title{
+      text-align: center;
+      
+  }
+  .card-text{
+      text-align: center;
+  }
+  .ori-pri{
+      color:black;
+      font-weight: 700;
+  }
+
+  svg{
+      margin: 0 3px;
+  }
+  /* container */
+  .row{
+    border: 2px solid #55ac56;
+    border-radius: 10px;
+    background: #f5f6fa;
+    padding: 20px;
+}
+#fruits-hiv{
+    display: none;
+}
+
+#printemps{
+    display: none;
+}
+#fruits-prin{
+    display: none;
+}
+
+
+#ete{
+    display: none;
+}
+#fruits-ete{
+    display: none;
+}
+
+
+#automne{
+    display: none;
+}
+#fruits-aut{
+    display: none;
+}
+.btn{
+    border: none!important;
+}
+.top-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,52 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color:  #ecf0f1;
+    text-align: justify;
+    
+}
+main{
+    line-height: 2.25em;
+}
+.contenant {
+    position: relative;
+    text-align: center;
+    color:#fff;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .texte_centrer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:60px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    z-index: 1000;
+    text-justify: auto;
+  }  
+
+  h1{
+      text-align: center;
+      text-align: justify;
+      font-size: 50px;
+      font-weight: 600;
+  }
+
+  /* article{
+      display: flex;
+  } */
+  .santé{
+      height: 280px;
+  }
+
+  h1{
+    margin: 50px 0;
+  }
+  img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    /* opacity: 0.4; */
+}

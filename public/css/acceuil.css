@@ -1,0 +1,115 @@
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body{
+    background-color:#fff;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* padding: 50px; */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    body{
+        font-family: 'Poppins', sans-serif;
+        background-color:  #ecf0f1;
+        /* text-align: justify; */
+        
+    }
+    main{
+        line-height: 2.25em;
+    }
+    .contenant {
+        position: relative;
+        
+        background: rgba(0, 0, 0, 0.7);
+        /* padding: 10px; */
+      }
+    .texte_centrer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size:60px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        z-index: 2;
+        text-justify: auto;
+        color:#fff;
+        width: 100%;
+        text-align: center; 
+      }  
+    #image{
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        /* opacity: 0.4; */
+    }
+    
+    /* carousel */
+    
+    .carousel-item {
+      
+        min-height: 500px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        margin-top: 40px;
+      }
+    .carousel-inner{
+        border-radius: 20px;
+      }
+    h1{
+       
+        text-align: center;
+        font-size: 4em;
+        font-family: 'Times New Roman', Times, serif;
+        /* padding:20px; */
+        font-weight: 700;
+        color:#556f2b;;
+    }
+    h3{
+       
+        font-size: 2em;
+        padding:20px;
+        font-weight: 800;
+        color:#000;
+        
+    } 
+    
+    #button{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+    }
+    
+    #cld{
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        position: relative;
+    }
+    .texte_centrer-calender{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        color: #fff;
+        z-index: 1000;
+        width: 100%;
+        text-align: center;
+    }
+    
+    
+    .btn{
+        border: none!important;
+    }
