@@ -35,15 +35,15 @@
                     <a class="nav-link" style="color: #fff" href="{{ path('acceuil') }}" >Acceuil</a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link"  style="color: #fff" href="">calendrier de la saison</a>
+                    <a class="nav-link"  style="color: #fff" href="{{ path('calendrier')}}">calendrier de la saison</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Articles
                 </a>
                 <div class="dropdown-menu" style="z-index:10000!important;" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="">Les bonnes pratiques</a>
-                  <a class="dropdown-item" href="">La diversification alimentaire</a>
+                  <a class="dropdown-item" href="{{ path('pratiques') }}">Les bonnes pratiques</a>
+                  <a class="dropdown-item" href="{{ path('diversification') }}">La diversification alimentaire</a>
                   <a class="dropdown-item" href="">Something else here</a>
                 </div>
             </li>

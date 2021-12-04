@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les bonnes pratiques |  {{ parent() }}{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ asset('css/bonnes_pratiques.css') }}">
+{% endblock %}
+{% block body %}
+ <div class="contenant">
+         <div id="fond"></div>
+         <img src="images/bonne-pra.jpg" alt="bonnes pratiques" id="image" style="opacity: 0.4;">
+         <div class="texte_centrer">Acheter et consommer des fruits et légumes frais : les bonnes pratiques</div>
+      </div>
+    <div class="container col-lg-8">
+    <main>
+      
+        <div id="para">
+            <p>Les sorties pour faire vos courses étant limitées et afin de 
+                gérer au mieux vos achats de fruits et légumes, voici quelques conseils pour acheter « malin » :</p>
+               <ul>
+
+                <li>Pensez à acheter vos fruits à différents stades de maturité : vous commencerez par consommer les 
+                plus mûrs puis les suivants plus tard dans la semaine.</li>
+                
+                <li>Pour les légumes, n’hésitez pas à varier vos achats, en achetant à la fois des légumes qui se conservent peu de temps (salade verte, fraises, asperges, épinards…) pour une consommation rapide (1 à 3 jours après vos achats) mais aussi ceux qui se 
+                    conservent un peu plus longtemps (carottes, poireaux, navet, céleri…) pour une consommation non immédiate.</li>
+                
+                <li> Vous pouvez également acheter des quantités plus importantes de fruits et légumes 
+                    et les cuisiner pour les congeler ou faire des conserves « maison ».</li>
+            </ul> 
+            <!-- <div id ="image1"><img src="images/image1.jpg"></div> -->
+      
+                 <p>Vous pouvez, dans un premier temps, préparer ou consommer les produits les plus mûrs afin d<span class="gras">’éviter le gaspillage alimentaire. </span>
+                     Si vous pensez ne pas réussir à consommer à temps vos produits, pas de panique, vous pouvez :</p>
+            <div>
+                <ul>
+                    <li>
+                        <span class="gras">réaliser vos bocaux</span>, idéal pour consommer des légumes du printemps toute l’année,
+                        réaliser vos recettes de la semaine à l’avance sur le principe du batch cooking, idéal pour se libérer du temps dans la semaine,
+                    </li>
+                    <li>
+                <span class="gras">faire vos confitures</span>, rapides et gourmandes pour ensoleiller vos petits déjeuners,
+                    </li> 
+                <li>
+                <span class="gras">précuire vos fruits et légumes</span> frais en poêlée, à la vapeur ou à l’eau pour les assembler ensuite en salade, gratin, soupe, purée…
+                </li>
+                <li>
+                <span class="gras">congeler vos fruits et légumes découpés</span> ou les plats que vous avez préparés, vous pourrez ainsi assembler rapidement vos fruits et légumes pour gagner du temps et vous régaler
+                </li>
+                <p>Les produits qui se conservent plus longtemps peuvent être préparés de la même manière un peu plus tard dans la semaine.</p>
+            </ul>
+            </div>
+
+            <p><span class="gras">Recette<br>
+                
+                La délicieuse recette de la soupe au pistou en bocal  <br>
+                
+                Les ingrédients pour 3 bocaux d’1 litre</span><br>
+                
+                Pour la soupe</p>
+            <div> 
+                <ul>
+                  <li>300 g d’haricots verts</li>
+                  <li>300 g de pois gourmands</li>
+                  <li>500 g d’haricots coco blancs</li>
+                  <li>500 g d’haricots rouges tigrés écossés</li>
+                  <li>2 courgettes</li>
+                  <li>3 pommes de terre moyennes (dont 1 pour le pistou)</li>
+                <li>4 tomates « cœur » (ou autre très charnues)</li><br>
+         <p>Pour le pistou</p> 
+                
+               <li> 5 gousses d’ail</li>
+                <li>10 c à s d’huile d’olive</li>
+                <li>1 gros bouquet de basilic</li>
+                <li>2 branches de thym</li>
+                <li>Sel, poivre</li>
+                <li>200 g de pâtes</li>
+                </ul>
+            </div>
+            <div>
+                <ol>
+                <li>Equeuter les haricots verts et les couper en deux (voir en trois s’ils sont trop grands).</li>
+                 <li> Emonder (éplucher) les tomates : les plonger environ 1 min à l’eau bouillante puis les plonger dans l’eau glacé pour retirer la peau. Les couper en 4 et les épépiner.</li>
+                 <li>  Eplucher les pommes de terre ; en garder une entière et tailler les autres en cubes.</li>
+                <li>Ecosser les haricots cocos blancs et rouges. Faire bouillir 3 litres d’eau dans une grande casserole, ajouter les haricots (cocos et verts), le thym  et les pommes de terre (entière et cubes) puis laisser cuire 1h à feu doux.</li>
+                <li> Ajouter les courgettes coupées en rondelles puis les tomates. Laisser cuire encore 30 min à feu doux.</li>
+                <li>Remplir des bocaux d’1L avec la soupe encore chaude, jusqu’à 2 cm du bord. Fermer et stériliser : déposer les pots dans un grand fait-tout en les calant avec un linge propre. Couvrir d’eau et faire stériliser 45 min à 100 °C. Laisser refroidir naturellement avant de sortir les conserves de l’eau.</li>
+                <li>Préparer le pistou : éplucher et dégermer l’ail et le piler avec le basilic (au mortier avec un pilon). Ajouter un peu d’huile d’olive, piler à nouveau et commencer à écraser la pomme de terre entière. Saler, poivrer et terminer en versant peu à peu d’huile d’olive jusqu’à obtenir une consistance crémeuse.</li>
+               <li> Au moment de servir, faire réchauffer la soupe à feu doux et ajouter les pâtes pour les faire cuire (8 à 12 min selon le type de pâtes choisi). Servir le pistou séparément. Chaque convive en parfumera sa soupe à sa guise.</li><br>
+                <span class="gras"> Spécial congélation</span>
+                
+               <p>La plupart des fruits et légumes se congèlent ! Lavez et séchez-les soigneusement, répartissez-les sur un plateau puis congelez-les une première fois (les fruits à noyaux seront congelés dénoyautés). Ensachez-les en petites portions puis placez-les à nouveau au congélateur (jusqu’à 1 an de conservation).
+                Pour les légumes, procédez de la même manière. Pour mieux préserver leur saveur et leur couleur, blanchissez-les en 2 et 5 minutes, rafraîchissez-les dans une eau glacée puis égouttez-les soigneusement avant de les congeler.</p> 
+                
+                <span class="gras">Astuces anti-gaspi</span>
+                
+                <p>Ne jetez plus les fanes et cuisinez-les ! Très parfumées, elles rehaussent le goût de vos plats, soupes ou salades. Par exemple, les feuilles de céleri-branche ajoutent de la saveur aux bouillons quand le plumet de fenouil se marie parfaitement au poisson en papillote. Avec des fanes de carottes, réalisez un délicieux pesto ! Mixez les fanes d’une belle botte préalablement passées sous l’eau, avec 2 gousses d’ail, 35 g de pignons de pin et 100 g de parmesan. Ajoutez progressivement l’huile d’olive et le tour est joué !
+                
+                « Campagne co financée par FranceAgriMer et du Ministère de l’Agriculture et de l’alimentation »</p>
+            </ol>
+        </div>
+    </main>
+</div> 
+{% endblock %}
