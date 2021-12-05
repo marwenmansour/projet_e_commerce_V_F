@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Créér un compte{% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ asset('css/connecter.css') }}"> {% endblock %}
+
+{% block body %}
+    
+   
+
+    <div class="container">
+        <div class="row content">
+
+            <div class="col-md-6 mb-3">
+                <img src="images/register.svg" class="img-fluid" alt="image">
+            </div>
+
+            <div class="col-md-6" id="form">
+                <h3 class="signin-text mb-3">Créér un compte</h3>
+                 {{ form(registrationForm) }}
+                <p>Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Connectez-vous !</a></p>
+            </div>
+           
+    </div>
+</div>
+
+
+
+{% endblock %}

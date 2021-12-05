@@ -75,6 +75,9 @@ $(function () {
         $('#automne').show();
     });
 
+    
+    $('input').attr('autocomplete', 'off');
+  
 
 
 });
