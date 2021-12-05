@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class CalendrierController extends AbstractController
 {
@@ -71,7 +72,7 @@ class CalendrierController extends AbstractController
 
         
     }
-    #[Route('/calendrier/create', name: 'create')]
+    #[Route('/calendrier/create', name: 'create'), IsGranted("ROLE_ADMIN")]
     public function creer(Request $request,EntityManagerInterface $entityManager ): Response
     {
         $produit = new FruitsLegumes();
@@ -91,14 +92,14 @@ class CalendrierController extends AbstractController
             'formulaire' => $form->createView()
             ]);
     }
-    #[Route('/calendrier/{id}/delete', name: 'delete')]
+    #[Route('/calendrier/{id}/delete', name: 'delete'), IsGranted("ROLE_ADMIN")]
     public function delete(FruitsLegumes $fruits_legumes, EntityManagerInterface $em) {
         $em->remove($fruits_legumes);
         $em->flush();
 
         return $this->redirectToRoute('calendrier');
     }
-    #[Route('/calendrier/{id}/update', name: 'update')]
+    #[Route('/calendrier/{id}/update', name: 'update'), IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, FruitsLegumes  $fruits_legumes) {
         $form = $this->createForm(FruitsLegumesType::class, $fruits_legumes);
         $form->handleRequest($request);

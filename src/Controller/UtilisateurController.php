@@ -11,8 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-#[Route('/utilisateur')]
+#[Route('/utilisateur') , IsGranted("ROLE_ADMIN")]
 class UtilisateurController extends AbstractController
 {
     #[Route('/', name: 'utilisateur_index', methods: ['GET'])]
