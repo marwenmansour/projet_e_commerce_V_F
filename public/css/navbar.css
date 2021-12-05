@@ -63,3 +63,14 @@ a{
     width: 130px;
     margin-right: 12px;
 }
+.bouton{
+    background-color: #A3CB38;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1em;
+    text-transform: uppercase;
+    /* display: flex; */
+    text-align: center;
+    margin: 3px;
+    padding: 4px;
+}
