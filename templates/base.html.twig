@@ -57,12 +57,12 @@
           </ul>
             {% if not app.user %}
           <ul class="navbar-nav ml-auto">
-            <a href=""><button class="btn">Se connecter</button></a>   
+            <a href="{{ path('app_login') }}"><button class="btn">Se connecter</button></a>   
           </ul>
             {% else %}
 
           <ul class="navbar-nav ml-auto">
-            <a href=""><button class="btn">Se déconnecter</button></a>   
+            <a href="{{ path('app_logout') }}"><button class="btn">Se déconnecter</button></a>   
           </ul>
             {% endif %}
         </div>
