@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} Nous contacter {% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ asset('css/contacter.css') }}"> {% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+        <form class="row g-3 content " id="form">
+            <div class="col-md-6 mb-3">
+                <img src="images/contacter.svg" class="img-fluid" alt="image">
+            </div>
+            <div class="col-md-6" id="form">
+                {{ form(formulaire) }}
+            </div>
+
+        </form>
+       
+    </div>
+{% endblock %}

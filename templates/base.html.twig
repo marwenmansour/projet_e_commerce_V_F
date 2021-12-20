@@ -48,7 +48,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #fff" href="">Nous contacter</a>
+                <a class="nav-link" style="color: #fff" href="{{ path('contact') }}">Nous contacter</a>
             </li>
              {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item">
@@ -108,7 +108,7 @@
         <span class="text-muted" >&copy; 2021 Marwen Mansour</span>     
       </div>
 
-      <a href="contacter.html.php"><span class="text-muted justify-content-between col-md-4 text-center"> Nous contacter</span></a>
+      <a href="{{ path('contact') }}"><span class="text-muted justify-content-between col-md-4 text-center"> Nous contacter</span></a>
 
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
