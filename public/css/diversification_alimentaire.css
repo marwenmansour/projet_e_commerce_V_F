@@ -50,3 +50,9 @@ main{
     object-fit: cover;
     /* opacity: 0.4; */
 }
+
+@media screen and (min-width: 540px){
+  .texte_centrer {
+      font-size: 50px;
+  }
+}
