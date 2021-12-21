@@ -72,6 +72,16 @@ class CalendrierController extends AbstractController
 
         
     }
+
+    #[Route('calendrier/{id}', name: 'calendrier_show', methods: ['GET'])]
+    public function show(FruitsLegumes $fruit_legume): Response
+    {
+        return $this->render('calendrier/show.html.twig', [
+            'fruit_legume' => $fruit_legume,
+        ]);
+    }
+
+
     #[Route('/calendrier/create', name: 'create'), IsGranted("ROLE_ADMIN")]
     public function creer(Request $request,EntityManagerInterface $entityManager ): Response
     {

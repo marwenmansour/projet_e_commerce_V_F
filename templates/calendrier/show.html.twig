@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendrier des saisons!{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ asset('css/panier.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container d-flex justify-content-center">
+    <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img id="image"src="{{ vich_uploader_asset(fruit_legume, 'imageFile') }}" alt={{fruit_legume.nom}}> </a>
+        <figcaption class="info-wrap">
+            <div class="row">
+                <div class="col-md-12 col-xs-12"> 
+                    <a href="#" class="title text-center" data-abc="true">{{fruit_legume.nom}}</a> 
+                </div>
+                
+            </div>
+        </figcaption>
+        <div class="bottom-wrap-payment">
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div class="col-md-9 col-xs-9">  
+                        <span class="rated">Prix €</span> 
+                        <a href="#" class="title" data-abc="true">{{fruit_legume.prix}} </a>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="pass-quantity">
+                            <label for="pass-quantity" class="quantity">Quantite</label>
+                            <input class="text-center" type="number" value="1" min="1" max="10">
+                        </div>
+                    </div>
+                </div>
+            </figcaption>
+        </div>
+        <div class="bottom-wrap"> <a href="#" class="btn float-right" data-abc="true"> Ajouter au panier </a>
+            <div class="price-wrap"> <a href="#" class="btn float-left" data-abc="true"> Anuller </a> </div>
+        </div>
+    </figure>
+</div>
+
+
+{% endblock %}
