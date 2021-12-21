@@ -75,7 +75,7 @@ flip card
   .card-front {
     transform: rotateY(0deg);
   }
-  
+ 
   .card-back {
     transform: rotateY(180deg);
     position: absolute;
@@ -104,6 +104,9 @@ flip card
       text-align: center;
       
   }
+  .top-card>h4{
+    font-size: 18px;
+}
   .card-text{
       text-align: center;
   }
@@ -156,3 +159,97 @@ flip card
     align-items: center;
     justify-content: center;
 }
+.btn_panier {
+    background-color: #A3CB38;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1em;
+    text-transform: uppercase;
+    /* display: flex; */
+    text-align: center;
+    padding: 8px 8px;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.btn_panier:hover{
+    background-color: #fff;
+    color: #55ac56;
+    
+}
+@media (min-width:994px) and (max-width:1216px) {
+    a.btn_panier{
+        font-weight: 650;
+        font-size: 12px;
+    }
+
+    a.btn{
+        font-weight: 650;
+        font-size: 12px;
+    }
+    .card-title{
+        font-size: 18px;
+    }
+    .top-card>h4{
+        font-size: 15px;
+        font-weight: bold;
+    }
+   
+}
+
+@media (min-width:720px) and (max-width:994px){
+   
+    .top-card>h4{
+        font-size: 30px;
+        margin-bottom: 35px;
+        margin-top: 15px;
+    }
+    a.btn{
+        font-weight: 650;
+        font-size: 18px;
+        margin-bottom: 35px;
+        margin-top: 15px;
+    }
+    a.btn_panier{
+        font-weight: 750;
+        font-size: 20px;
+        
+    }
+    /* .top-card{
+        position: relative
+    } */
+}
+
+
+
+@media  (max-width:720px){
+   
+    .top-card>h4{
+        font-size: 40px;
+        margin-bottom: 35px;
+        margin-top: 15px;
+    }
+    a.btn{
+        font-weight: 650;
+        font-size: 25px;
+        margin-bottom: 35px;
+        margin-top: 15px;
+    }
+    a.btn_panier{
+        font-weight: 750;
+        font-size: 20px;
+        
+    }
+    .card-text{
+        font-size: 30px;
+    }
+}
+
+
+
+
+

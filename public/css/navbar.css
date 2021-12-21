@@ -33,7 +33,7 @@
     text-transform: uppercase;
     /* display: flex; */
     text-align: center;
-    margin: 10px;
+    margin: 5px;
 }
 .btn:hover{
     background-color: #fff;
@@ -77,4 +77,14 @@ a{
 ul{
     align-items: center;
     text-align: center;
+}
+@media (min-width:994px) and (max-width:1216px) {
+    .nav-link{
+        font-weight: 600;
+        font-size: 13px;
+    }
+    .navbar-brand
+    {
+        font-size: 1.25em;
+    }
 }
