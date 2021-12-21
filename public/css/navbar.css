@@ -74,3 +74,7 @@ a{
     margin: 3px;
     padding: 4px;
 }
+ul{
+    align-items: center;
+    text-align: center;
+}
