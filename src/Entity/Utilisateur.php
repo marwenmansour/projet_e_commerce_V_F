@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UtilisateurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -51,6 +53,16 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="bigint")
      */
     private $telephone;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Panier::class, mappedBy="user")
+     */
+    private $panier;
+
+    public function __construct()
+    {
+        $this->panier = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -173,6 +185,36 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Panier[]
+     */
+    public function getPanier(): Collection
+    {
+        return $this->panier;
+    }
+
+    public function addPanier(Panier $panier): self
+    {
+        if (!$this->panier->contains($panier)) {
+            $this->panier[] = $panier;
+            $panier->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePanier(Panier $panier): self
+    {
+        if ($this->panier->removeElement($panier)) {
+            // set the owning side to null (unless already changed)
+            if ($panier->getUser() === $this) {
+                $panier->setUser(null);
+            }
+        }
 
         return $this;
     }

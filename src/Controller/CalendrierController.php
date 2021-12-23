@@ -73,7 +73,7 @@ class CalendrierController extends AbstractController
         
     }
 
-    #[Route('calendrier/{id}', name: 'calendrier_show', methods: ['GET'])]
+    #[Route('calendrier/{id}', name: 'calendrier_show', methods: ['GET']),IsGranted("ROLE_USER")]
     public function show(FruitsLegumes $fruit_legume): Response
     {
         return $this->render('calendrier/show.html.twig', [
