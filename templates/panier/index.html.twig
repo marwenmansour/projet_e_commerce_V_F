@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}votre panier!{% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ asset('css/connecter.css') }}"> {% endblock %}
+{% block body %}
+<div class="container">
+        
+        
+            {% if items | length >0 %}
+            <h1 class="text-center mt-3"> votre panier </h1>
+                <div class="row content">
+            
+            <div class="col-md-6 mb-3">
+                <img src="images/addtocart.svg" class="img-fluid" alt="image">
+            </div>
+             <div class="col-md-6" id="form">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix</th> 
+                            <th>Quantite</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                        {% for item in items %}
+                        <tr>
+                            <td>{{item.produit.nom}}</td>
+                            <td>{{item.produit.prix}}</td>
+                            <td>{{item.quantite}}</td>
+                            <td> {{ item.quantite * item.produit.prix }} </td>
+                            <td> <a class="btn btn-danger" href="{{ path('supprimer_panier',{'id': item.produit.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                        <td colspan ="3" class="text-right">Total : </td>
+                        <td>{{ prix_total }}</td>
+                        <td></td>
+                        </tr>
+                    <tfoot>
+
+                </table>
+             </div>
+             </div>
+            {% else %}
+            
+                <h1 class="text-center mt-3"> votre panier est vide </h1>
+            
+            <div class="row content">
+                <div class="col-md-6 mb-3">
+                    <img src="images/oops.svg" class="img-fluid" alt="image">
+                </div>
+            
+            <div class="col-md-6" id="form">
+            <h1 class="text-center"><a href="{{ path('calendrier') }}">Veuillez ajouter des articles au panier</a></h1>
+            </div>
+            </div>
+                
+            {% endif %}
+    </div>
+{% endblock %}

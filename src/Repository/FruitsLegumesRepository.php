@@ -47,4 +47,5 @@ class FruitsLegumesRepository extends ServiceEntityRepository
         ;
     }
     */
+    
 }
