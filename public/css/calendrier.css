@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color:  #ecf0f1;
+}
 header{
     width: 100%;
     
@@ -104,9 +108,13 @@ flip card
       text-align: center;
       
   }
+  .top-card{
+    margin-bottom: 10px;
+  }
   .top-card>h4{
     font-size: 18px;
-}
+    padding-top: 10px;
+    }
   .card-text{
       text-align: center;
   }
@@ -182,6 +190,13 @@ flip card
     
 }
 @media (min-width:994px) and (max-width:1216px) {
+    .top-card>h4{
+        font-size: 15px;
+        
+    }
+    .top-card{
+        margin-bottom: 0px;
+      }
     a.btn_panier{
         font-weight: 650;
         font-size: 12px;
@@ -194,19 +209,15 @@ flip card
     .card-title{
         font-size: 18px;
     }
-    .top-card>h4{
-        font-size: 15px;
-        font-weight: bold;
-    }
+    
    
 }
 
 @media (min-width:720px) and (max-width:994px){
    
     .top-card>h4{
-        font-size: 30px;
-        margin-bottom: 35px;
-        margin-top: 15px;
+        font-size: 25px;
+        padding-bottom: 15px;
     }
     a.btn{
         font-weight: 650;
@@ -218,10 +229,12 @@ flip card
         font-weight: 750;
         font-size: 20px;
         
+    }.top-card{
+        margin-bottom: 0;
+      }
+    .card-text{
+        font-size: 20px;
     }
-    /* .top-card{
-        position: relative
-    } */
 }
 
 
@@ -229,9 +242,9 @@ flip card
 @media  (max-width:720px){
    
     .top-card>h4{
-        font-size: 40px;
-        margin-bottom: 35px;
-        margin-top: 15px;
+        font-size: 35px;
+        font-weight: bold;
+        padding-bottom: 15px;
     }
     a.btn{
         font-weight: 650;
@@ -242,8 +255,10 @@ flip card
     a.btn_panier{
         font-weight: 750;
         font-size: 20px;
-        
     }
+    .top-card{
+        margin-bottom: 0;
+      }
     .card-text{
         font-size: 30px;
     }

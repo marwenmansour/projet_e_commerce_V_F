@@ -105,7 +105,7 @@
                   <div class="top-card">
                       <h4 class="card-title">{{legume.nom}}</h4>
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a class="btn btn-danger" href="{{ path('delete', {id: legume.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                        <a class="btn btn-danger" href="{{ path('delete', {id: legume.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                     <a class="btn btn-danger" href="{{ path('update', {id: legume.id}) }}" title="modifier">

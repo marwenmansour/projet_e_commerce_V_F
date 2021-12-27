@@ -77,6 +77,7 @@ $(function () {
 
     
     $('input').attr('autocomplete', 'off');
+    $('textarea').attr('rows', '6');
   
 
 

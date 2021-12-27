@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}votre panier!{% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ asset('css/connecter.css') }}"> {% endblock %}
+{% block body %}
+<div class="container">
+
+            
+        <div class="row content">
+            <div class="col-md-6 mb-3">
+                <img src="images/error.svg" class="img-fluid" alt="image">
+            </div>
+            
+            <div class="col-md-6" id="form">
+                <h1 class="text-center">OOOPS ! </br>
+                                        Merci pour votre essai </br>
+                                        Veuillez réessayer ultérieurement
+                </h1>
+            </div>
+        </div>
+</div>
+{% endblock %}

@@ -73,6 +73,33 @@ class CalendrierController extends AbstractController
 
         
     }
+    #[Route('/calendrier/create', name: 'create'), IsGranted("ROLE_ADMIN")]
+    public function creer(Request $request,EntityManagerInterface $entityManager ): Response
+    {
+        $produit = new FruitsLegumes();
+
+        $form = $this->createForm(FruitsLegumesType::class, $produit);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($produit);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('calendrier', []);
+        }
+        
+        return $this->render('calendrier/add.html.twig', [
+            'formulaire' => $form->createView()
+            ]);
+    }
+    #[Route('/calendrier/{id}/delete', name: 'delete'), IsGranted("ROLE_ADMIN")]
+    public function delete(FruitsLegumes $fruits_legumes, EntityManagerInterface $em) {
+        $em->remove($fruits_legumes);
+        $em->flush();
+
+        return $this->redirectToRoute('calendrier');
+    }
 
     #[Route('calendrier/{id}', name: 'calendrier_show', methods: ['GET']),IsGranted("ROLE_USER")]
     public function show(FruitsLegumes $fruit_legume,$id,SessionInterface $session): Response
@@ -112,33 +139,7 @@ class CalendrierController extends AbstractController
     
 
 
-    #[Route('/calendrier/create', name: 'create'), IsGranted("ROLE_ADMIN")]
-    public function creer(Request $request,EntityManagerInterface $entityManager ): Response
-    {
-        $produit = new FruitsLegumes();
-
-        $form = $this->createForm(FruitsLegumesType::class, $produit);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($produit);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('calendrier', []);
-        }
-        
-        return $this->render('calendrier/add.html.twig', [
-            'formulaire' => $form->createView()
-            ]);
-    }
-    #[Route('/calendrier/{id}/delete', name: 'delete'), IsGranted("ROLE_ADMIN")]
-    public function delete(FruitsLegumes $fruits_legumes, EntityManagerInterface $em) {
-        $em->remove($fruits_legumes);
-        $em->flush();
-
-        return $this->redirectToRoute('calendrier');
-    }
+   
     #[Route('/calendrier/{id}/update', name: 'update'), IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, FruitsLegumes  $fruits_legumes) {
         $form = $this->createForm(FruitsLegumesType::class, $fruits_legumes);

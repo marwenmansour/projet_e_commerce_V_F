@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}votre panier!{% endblock %}
-{% block css %} <link rel="stylesheet" href="{{ asset('css/connecter.css') }}"> {% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ asset('css/panier.css') }}"> {% endblock %}
 {% block body %}
 <div class="container">
         
@@ -49,6 +49,13 @@
                     <tfoot>
 
                 </table>
+                <div class="d-flex justify-content-center">
+                    
+                    <form action="/checkout" method="POST">
+                        <button class="btn"type="submit">Payer</button>
+                    </form>
+                </div>
+                </div>
              </div>
              </div>
             {% else %}
