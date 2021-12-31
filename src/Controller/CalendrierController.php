@@ -53,7 +53,7 @@ class CalendrierController extends AbstractController
                 array('type' =>'fruits','saison' =>'automne')
 
             );
-        
+      
         return $this->render('calendrier/calendrier.html.twig', [
             'controller_name' => 'CalendrierController',
             'fruits_hiv' =>$fruits_hiv,
@@ -70,7 +70,7 @@ class CalendrierController extends AbstractController
 
             
         ]);
-
+    
         
     }
     #[Route('/calendrier/create', name: 'create'), IsGranted("ROLE_ADMIN")]

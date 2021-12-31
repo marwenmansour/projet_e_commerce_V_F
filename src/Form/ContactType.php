@@ -19,9 +19,9 @@ class ContactType extends AbstractType {
             ->add('telephone', NumberType::class)
             ->add('sujet', TextType::class)
             ->add('message', TextareaType::class)
-            ->add('submit', SubmitType::class, [
-                'label' => 'Envoyer'
-            ]);
+            ->add('submit', SubmitType::class, 
+                    ['label' => 'Envoyer']
+                );
     }
 
     public function configureOptions(OptionsResolver $resolver): void {
