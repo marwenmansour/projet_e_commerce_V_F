@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}L’alimentation des adolescents |  {{ parent() }}{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ asset('css/alimentation.css') }}">
+{% endblock %}
+{% block body %}
+
+    <main>
+
+        <section class="contenant">
+            <div id="fond"></div>
+                <img src="images/nutrition-ados.jpg" alt="L’alimentation des adolescents" id="image" style="opacity: 0.4;">
+            <div class="texte_centrer">L’alimentation des adolescents</div>
+        </section>
+
+        <section class="container mt-5">
+            <article class="row">
+            
+                <div class="col-md-6 container">
+                    <h2>Comment aider nos ados à équilibrer leur alimentation ?</h2>
+                    <p>
+                        
+                        L’adolescence se caractérise par un <strong>besoin d’autonomie</strong>, une envie de <strong>liberté alimentaire</strong>. 
+                        Il faut respecter au maximum cette <strong>évolution indispensable</strong>, tout en donnant un <strong>cadre</strong>, car 
+                        les ados en ont besoin, ils en sont même – indirectement – demandeurs. <br>
+
+                        Ils veulent manger à leur façon, mais leurs besoins sont bien particuliers. 
+                        Comment concilier gourmandise, autonomie et équilibre alimentaire ?
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <img src="images/alimentation-adolescents.png" alt="alimentation-adolescents" class="adolescents">
+                </div>
+
+            </article>
+
+            <article class="row">
+                <h1 class="my-5">Les fruits et légumes : toujours gourmands !</h1>
+
+                <p>
+                    Les fruits et les légumes frais doivent avoir <strong>une place de choix dans l’alimentation </strong>à cette période de la vie. Pour installer à long terme un réflexe de consommation, 
+                    il est important que les ados aient plaisir à les consommer.
+                </p>
+
+                <div class="col-md-4">
+                    <img src="images/adultes.png" alt="alimentation-adolescents">
+                </div>
+
+                <div class="col-md-8">
+                    <ul>
+                        <li>
+                        Proposez des fruits et des légumes à <strong>chaque repas </strong>pour que cela fasse partie de leur paysage alimentaire quotidien : 
+                        <strong>crudités </strong>ou <strong>soupe </strong>en entrée, <strong>légumes </strong>cuits ou <strong>salade</strong> en plat, <strong>fruits</strong> découpés ou fruits au four au dessert.
+                        </li>
+                        <li>
+                        <strong>Variez les présentations et les modes de cuisson.</strong> gratin au jambon et au fromage, 
+                        tartes et cakes aux légumes, soufflés, grandes salades composées, etc., l’idée étant 
+                        d’associer les légumes aux ingrédients qu’ils apprécient (fromage, thon, œufs, etc.)
+                        </li>
+                        <li>
+                        <strong>Pensez aussi aux </strong>fruits sautés avec une pointe de sucre roux ou aux smoothies. Les ados apprécient souvent le sucré-salé, qui est une excellente façon d’augmenter leur consommation de végétaux frais : 
+                        filet mignon aux abricots et à la sauge, poulet à l’ananas, salade de bœuf épicée à la mangue, etc.
+                        </li>
+                   </ul>
+                </div>
+
+
+            </article>
+
+
+        </section>
+
+    </main>
+{% endblock %}

@@ -23,4 +23,12 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
         ]);
     }
+
+    #[Route('/l_alimentation_des_adolescents', name: 'alimentation')]
+    public function alimentation_adolescents(): Response
+    {
+        return $this->render('article/alimentation_adolescents.html.twig', [
+            'controller_name' => 'ArticleController',
+        ]);
+    }
 }
