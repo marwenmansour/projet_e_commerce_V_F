@@ -49,7 +49,7 @@ class RegistrationFormType extends AbstractType
                 'second_options' => ['label' => 'Confirmation du mot de passe'],
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => 'J\'accepte les Conditions Générales d\'Utilisation',
+                'label' => 'J\'accepte les mentions légales',
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([

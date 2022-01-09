@@ -6,6 +6,12 @@
 
 {% block body %}
 <div class="container mt-5">
+        
+        {% if notif is not empty %}
+            <div class="alert alert-success" role="alert">
+                <p class="text">{{ notif }}</p>
+            </div>
+        {% endif %}
 
         <div class="row content" >
             <div class="col-md-6 mb-3">

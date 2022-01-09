@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StaticController extends AbstractController
 {
-    #[Route('/cgv', name: 'cgv')]
+    #[Route('/mentions-légales', name: 'cgv')]
     public function index(): Response
     {
         return $this->render('static/cgv.html.twig', [

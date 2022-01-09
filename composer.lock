@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "314ff6b2b5de70a6aa1358bc0cb74e22",
+    "content-hash": "9877a90e6a0c179f4ffe9adbd234ea43",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1818,6 +1818,63 @@
                 }
             ],
             "time": "2021-10-01T21:08:31+00:00"
+        },
+        {
+            "name": "nystudio107/craft-cookies",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nystudio107/craft-cookies.git",
+                "reference": "62e91855ec6ef59b34a646e08580d4f3c266032f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-cookies/zipball/62e91855ec6ef59b34a646e08580d4f3c266032f",
+                "reference": "62e91855ec6ef59b34a646e08580d4f3c266032f",
+                "shasum": ""
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Cookies",
+                "handle": "cookies",
+                "schemaVersion": "1.0.0",
+                "hasSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/nystudio107/craft3-cookies/CHANGELOG.md",
+                "class": "nystudio107\\cookies\\Cookies",
+                "components": {
+                    "cookies": "nystudio107\\cookies\\services\\CookiesService"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\cookies\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com/"
+                }
+            ],
+            "description": "A simple plugin for setting and getting cookies from within Craft CMS templates.",
+            "keywords": [
+                "Craft",
+                "cms",
+                "cookies",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-3cookies/blob/craft3/README.md",
+                "issues": "https://github.com/nystudio107/craft-3cookies/issues",
+                "source": "https://github.com/nystudio107/craft-cookies/tree/1.1.2"
+            },
+            "time": "2017-02-17T23:16:40+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

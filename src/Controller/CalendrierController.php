@@ -113,32 +113,14 @@ class CalendrierController extends AbstractController
             }
             $panier[$id]=intval($quantite);
             $session->set('panier',$panier);
-            
+             
         }
         
-
-        
-        return $this->render('calendrier/show.html.twig', [
+         return $this->render('calendrier/show.html.twig', [
             'fruit_legume' => $fruit_legume,
             'passquantity' => intval($passquantity),
         ]);
     }
-    // #[Route('panier/', name: 'panier_add'),IsGranted("ROLE_USER")]
-    // public function panier(SessionInterface $session, FruitsLegumesRepository $fruit_legume_repository)
-    // {
-    //    $panier = $session->get('panier',[]);
-    //    $panier_with_data = [];
-    //    foreach($panier as $id => $quantite){
-    //        $panier_with_data[]=[
-    //            'produit' => $fruit_legume_repository->find($id),
-    //            'quantite'=> $quantite,
-    //        ];
-    //    }
-    //    dd($panier_with_data);
-    // }
-    
-
-
    
     #[Route('/calendrier/{id}/update', name: 'update'), IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, FruitsLegumes  $fruits_legumes) {

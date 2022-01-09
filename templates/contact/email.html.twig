@@ -1,0 +1,15 @@
+{% block css %} 
+    <link rel="stylesheet" href="{{ asset('css/email.css') }}"> 
+{% endblock %}
+
+
+{% block body %}
+<h2>message from : <br>{{ user_mail }}!</h1>
+
+<h2 > Telephone : <br> {{tel}}</h2>
+
+<h2> Message </h2>
+<p>
+    {{message}}
+</p>
+{% endblock %}

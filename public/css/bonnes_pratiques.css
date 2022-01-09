@@ -21,10 +21,9 @@ main{
     color: #A3CB38;
     
 }
-
-
-
-
+ul , li {
+    text-align: left;
+}
 #bouton{
     margin-top: 20px;
     margin-left: 42%;

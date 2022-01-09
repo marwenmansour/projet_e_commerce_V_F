@@ -11,6 +11,8 @@ use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+
 
 
 
@@ -22,25 +24,36 @@ class ContactController extends AbstractController
 
         $formulaire = $this->createForm(ContactType::class);
         $formulaire->handleRequest($request);
-        
+        $notif = '';
         if ($formulaire->isSubmitted() && $formulaire->isValid()) {
             $contact = $formulaire->getData();
            
             $mailer->send(
-                (new Email)
+                (new TemplatedEmail)
                     ->from($contact['email'])
-                    ->to($contact['email'])
+                    ->to('fruitslegumes2022@gmail.com')
                     ->subject($contact['sujet'])
-                    ->text($contact['message'])
+                    
+                    // path of the Twig template to render
+                    ->htmlTemplate('contact/email.html.twig')
+
+                    // pass variables (name => value) to the template
+                    ->context([
+                        'user_mail' => $contact['email'],
+                        'tel' => $contact['telephone'],
+                        'message' => $contact['message'],
+                    ])
             );
-            $this->addFlash('success', 'Le message a bien été envoyé.');
+            $notif = 'Votre message a bien été envoyé.';
             
         }
         
 
         return $this->render('contact/index.html.twig', [
             'formulaire' => $formulaire->createView(),
+            'notif' => $notif,
         ]);
+        
     }
 }
 

@@ -24,3 +24,36 @@ body{
   li{
     margin-left: 5px;
   }
+  .banniere{
+    /* border-top: #000 5px solid; */
+    background: rgba(163,203,56,0.8);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    z-index: 1000;
+  }
+  .text-banniere{
+    font-size: large;
+    font-weight: 900;
+  }
+  .button-banniere{
+    padding: 15px 5px;
+  }
+  .button-banniere a{
+    border: solid  1px #fff;
+    padding:  15px 5px;
+    background: #55ac56;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+  }
+  .button-banniere a:hover{
+    border-color: #55ac56;
+    background: #fff;
+    color: #55ac56;
+  }

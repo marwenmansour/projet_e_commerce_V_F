@@ -21,6 +21,8 @@
        {% endblock %}
 </head>
 <body>
+  {% if not (app.request.cookies.get('accept-cookie') is defined) %}
+  {% endif %}
  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #55ac56;">
 
       
@@ -34,10 +36,10 @@
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
           <ul class="navbar-nav ml-lg-auto">
             <li class="nav-item">
-                    <a class="nav-link" style="color: #fff" href="{{ path('acceuil') }}" >Acceuil</a>
+                    <a class="nav-link" style="color: #fff" href="{{ path('acceuil') }}" >Accueil</a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link"  style="color: #fff" href="{{ path('calendrier')}}">calendrier de la saison</a>
+                    <a class="nav-link"  style="color: #fff" href="{{ path('calendrier')}}">calendrier</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,7 +57,7 @@
             </li>
             {% endif %}
             <li class="nav-item">
-                <a class="nav-link" style="color: #fff" href="{{ path('contact') }}">Nous contacter</a>
+                <a class="nav-link" style="color: #fff" href="{{ path('contact') }}">contact</a>
             </li>
              {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item">
@@ -85,6 +87,14 @@
             {% endif %}
       </div>
     </nav>
+    {# { % for message in app.flashes('success') %}
+      <div class="alert alert-success alert-dimissible fade show" role="alert">
+        <strong>Succès</strong> {{ message }}
+        <button type="button" class="close" data-dimiss="alert" aria-label="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %} #}
      
     {% block body %}
     {% endblock %}
@@ -112,13 +122,12 @@
   <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-1 my-2 border-top">
       <div class="col-sm-4 col-4 d-flex align-items-center">
-        <span class="text-muted" >&copy; 2021 Marwen Mansour</span>
-        <a href="{{ path('cgv') }}"><span class="text-muted justify-content-between text-center">CGU & CGV</span></a>     
+        <a href="{{ path('cgv') }}"><span class="text-muted" > Mentions légales</span></a>    
       </div>
-      <div class="col-sm-4 col-4 d-flex align-items-center justify-content-between text-center">
-        <a href="{{ path('contact') }}"><span class="text-muted col-md-4 text-center"> Nous contacter</span></a>
+      <div class="text-center">
+        <a href="{{ path('contact') }}"><span class="text-muted text-center"> Nous contacter</span></a>
       </div>
-      <ul class="nav col-sm-2 col-4 justify-content-end list-unstyled d-flex">
+      <ul class="nav col-sm-4 col-4 justify-content-end list-unstyled d-flex">
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>     
@@ -128,6 +137,29 @@
   </div>
 </div>
 
+
+{% if not app.request.cookies.get('accept-cookie') %}
+  <div id="banniere"class="banniere">
+  <div class="text-banniere">
+    <p> Notre site utilise des cookies pour une meilleure expérience <br>
+    Si vous acceptez ici , vous acceptez nos <a href="{{ path('cgv') }}"> mentions légales </a> 
+    </p>
+  </div>
+  <div class="button-banniere">
+    <a  id="accept-cookie" onclick="set_cookies()">OK, J'accepte</a>
+  </div>
+</div>
+
+{% endif %}
+
+    <script>
+    function set_cookies(){
+      document.cookie = "accept-cookie=true; expires=Thu, 18 Dec 2022 12:00:00 UTC";
+      document.getElementById("banniere").style.display="none";
+     
+    }
+    
+    </script>
     {% block js %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

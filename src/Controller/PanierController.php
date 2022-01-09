@@ -26,6 +26,7 @@ class PanierController extends AbstractController
            $panier_with_data[]=[
                'produit' => $fruit_legume_repository->find($id),
                'quantite'=> $quantite,
+               
            ];
        }
        $totalItems = 0;
