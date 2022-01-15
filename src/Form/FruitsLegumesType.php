@@ -21,7 +21,11 @@ class FruitsLegumesType extends AbstractType
             ->add('prix', NumberType::class)
             ->add('saison', TextType::class)
             ->add('type', TextType::class)
-            ->add('imageFile', VichImageType::class)
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'download_link' => false,
+                'image_uri' => true
+            ])
             ->add('submit', SubmitType::class,[ 
                 'label' => 'Envoyer'
             ]);

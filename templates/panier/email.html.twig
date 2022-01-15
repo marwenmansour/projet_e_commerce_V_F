@@ -1,0 +1,11 @@
+{% block css %} 
+    <link rel="stylesheet" href="{{ asset('css/email.css') }}"> 
+{% endblock %}
+
+
+{% block body %}
+<h2>Monsieur : <br>{{ user_nom }}!</h1>
+
+<h2 >Vous venez de réaliser une commande comptant {{ prix }}  (€) </h2>
+
+{% endblock %}

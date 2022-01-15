@@ -43,7 +43,7 @@
                     <tfoot>
                         <tr>
                         <td colspan ="3" class="text-right">Total : </td>
-                        <td>{{ prix_total }}</td>
+                        <td>{{ prix_total }}  (€) </td>
                         <td></td>
                         </tr>
                     <tfoot>
@@ -51,9 +51,10 @@
                 </table>
                 <div class="d-flex justify-content-center">
                     
-                    <form action="/checkout" method="POST">
-                        <button class="btn"type="submit">Payer</button>
-                    </form>
+                    {# <form action="/checkout" method="POST"> #}
+                        <a class="btn" href="{{ path('commande_new') }}">valider</a>
+                        {# <button class="btn" type="submit">Payer</button>
+                    </form> #}
                 </div>
                 </div>
              </div>

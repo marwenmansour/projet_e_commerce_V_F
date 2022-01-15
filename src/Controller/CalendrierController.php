@@ -113,22 +113,44 @@ class CalendrierController extends AbstractController
             }
             $panier[$id]=intval($quantite);
             $session->set('panier',$panier);
-             
+            return $this->redirectToRoute('calendrier', [], Response::HTTP_SEE_OTHER);
         }
         
-         return $this->render('calendrier/show.html.twig', [
+
+        return $this->render('calendrier/show.html.twig', [
             'fruit_legume' => $fruit_legume,
             'passquantity' => intval($passquantity),
         ]);
     }
    
     #[Route('/calendrier/{id}/update', name: 'update'), IsGranted("ROLE_ADMIN")]
-    public function edit(Request $request, FruitsLegumes  $fruits_legumes) {
+    public function edit(int $id, Request $request, FruitsLegumes $fruits_legumes, FruitsLegumesRepository $fruitsLegumesRepository, EntityManagerInterface $entityManager) {
+        
         $form = $this->createForm(FruitsLegumesType::class, $fruits_legumes);
         $form->handleRequest($request);
-
+ 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            /*
+            $newImg = $form['imageFile']->getData();
+            
+            if (!empty($newImg)) {
+                
+                $oldImg = $fruitsLegumesRepository->find($id)->getImage();
+
+                $oldImgPath = $this->getParameter('app.path.product_images') . '/' . $oldImg;
+                
+                
+                if (file_exists($oldImgPath)) {
+                    unlink($oldImgPath);
+                }
+
+                // fait automatiquement par Vich :
+                // - renommer la nouvelle img
+                // - upload de la nouvelle l'img
+                // - $fruits_legumes->setImg()
+            } */
+
+            $entityManager->flush();
 
             return $this->redirectToRoute('calendrier', []);
         }

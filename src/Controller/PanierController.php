@@ -4,16 +4,24 @@ namespace App\Controller;
 
 use Stripe\Stripe;
 use App\Entity\Panier;
+use App\Form\PanierType;
+use App\Entity\Utilisateur;
 use Stripe\Checkout\Session;
 use App\Entity\FruitsLegumes;
+use App\Form\UtilisateurType;
 use App\Form\FruitsLegumesType;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\FruitsLegumesRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class PanierController extends AbstractController
 {
@@ -29,7 +37,11 @@ class PanierController extends AbstractController
                
            ];
        }
-       $totalItems = 0;
+   
+      
+    //    prix totale//
+       $totalItems = 0; 
+    
        
        foreach($panier_with_data as $item) {
            $totalItem = $item['produit']->getPrix() * $item['quantite'];
@@ -48,6 +60,7 @@ class PanierController extends AbstractController
     {
         $panier = $session->get('panier',[]);
         if(!empty($panier[$id])){
+            // effacé la commande
             unset($panier[$id]);
         }   
         $session->set('panier',$panier);
@@ -55,20 +68,12 @@ class PanierController extends AbstractController
         return $this->redirectToRoute('panier');
     }
 
-    
-    // #[Route('/payment', name: 'payment')]
-    // public function payement(): Response
-    // {
-    //     return $this->render('panier/payer.html.twig', [
-    //         'controller_name' => 'PanierController',
-    //     ]);
-    // }
 
     #[Route('/checkout', name: 'checkout')]
     public function checkout(SessionInterface $session_panier,FruitsLegumesRepository $fruit_legume_repository): Response
     {
         $panier = $session_panier->get('panier',[]);
-        $panier_with_data = [];
+       
        foreach($panier as $id => $quantite){
            $panier_with_data[]=[
                'produit' => $fruit_legume_repository->find($id),
@@ -87,6 +92,7 @@ class PanierController extends AbstractController
                 $nomProduits .= $nomProduit . " & ";
            }
        }
+       
        if (count($panier_with_data) > 1 )
         {
             $nomProduits = rtrim($nomProduits,"& ");
@@ -118,8 +124,42 @@ class PanierController extends AbstractController
     }
 
     #[Route('/success-url', name: 'success_url')]
-    public function successUrl(): Response
+    public function successUrl(MailerInterface $mailer, SessionInterface $session,FruitsLegumesRepository $fruit_legume_repository): Response
     {
+        $totalItems = 0;
+        $panier = $session->get('panier',[]);
+        $panier_with_data = [];
+        
+        foreach($panier as $id => $quantite){
+            $panier_with_data[]=[
+                'produit' => $fruit_legume_repository->find($id),
+                'quantite'=> $quantite,
+                
+            ];
+        }
+       
+        foreach($panier_with_data as $item) 
+        {
+        $totalItem = $item['produit']->getPrix() * $item['quantite'];
+        $totalItems += $totalItem ;
+        }
+        $user = $this->getUser();
+        $email = $user->getEmail();
+        $mailer->send(
+            (new TemplatedEmail)
+                ->from('fruitslegumes2022@gmail.com')
+                ->to($email)
+                ->subject('commande')
+                
+                // path of the Twig template to render
+                ->htmlTemplate('panier/email.html.twig')
+
+                // pass variables (name => value) to the template
+                ->context([
+                    'user_nom' => $user->getPseudo(),
+                    'prix' => $totalItems,
+                ])
+        );
         return $this->render('panier/success.html.twig', []);
     }
 
@@ -129,7 +169,56 @@ class PanierController extends AbstractController
     {
         return $this->render('panier/cancel.html.twig', []);
     }
+
+    // valider utilisateur coordonnées
+
+
+    #[Route('/commande', name: 'commande_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, SessionInterface $session,EntityManagerInterface $entityManager,FruitsLegumesRepository $fruit_legume_repository): Response
+    {
+        $commande = new Panier();
+        $form = $this->createForm(PanierType::class, $commande);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() ) {
+           
+            $totalItems = 0;
+            $panier = $session->get('panier',[]);
+            $panier_with_data = [];
+            
+            foreach($panier as $id => $quantite){
+                $panier_with_data[]=[
+                    'produit' => $fruit_legume_repository->find($id),
+                    'quantite'=> $quantite,
+                    
+                ];
+            }
+           
+            foreach($panier_with_data as $item) 
+            {
+            $totalItem = $item['produit']->getPrix() * $item['quantite'];
+            $totalItems += $totalItem ;
+            }
+            $user = $this->getUser();
+            $commande->setPrixTotale($totalItems);
+            $commande->setUser($user);
+            $entityManager->persist($commande);
+            $entityManager->flush();
+            
+           
+           
+
+            return $this->redirectToRoute('checkout', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('panier/valider.html.twig', [
+            'commande' => $commande,
+            'form' => $form,
+        ]);
+    }
+
 }
+   
 
 
     
