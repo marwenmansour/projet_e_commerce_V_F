@@ -12,6 +12,7 @@ use App\Form\UtilisateurType;
 use App\Form\FruitsLegumesType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\FruitsLegumesRepository;
+use App\Repository\PanierRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -215,6 +216,26 @@ class PanierController extends AbstractController
             'commande' => $commande,
             'form' => $form,
         ]);
+    }
+
+    
+    #[Route('/commandes', name: 'commandes', methods: ['GET'])]
+    public function commandes(PanierRepository $panierRepository): Response
+    {
+        return $this->render('panier/commandes.html.twig', [
+            'commandes' => $panierRepository->findAll(),
+        ]);
+    }
+
+    #[Route('commandes/{id}', name: 'commande_delete', methods: ['GET', 'POST'])]
+    public function delete(Request $request,Panier $panier, EntityManagerInterface $entityManager): Response
+    {
+        
+            $entityManager->remove($panier);
+            $entityManager->flush();
+      
+
+        return $this->redirectToRoute('commandes', [], Response::HTTP_SEE_OTHER);
     }
 
 }

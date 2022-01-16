@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Utilisateurs{% endblock %}
-
+{% block css %} 
+    <link rel="stylesheet" href="{{ asset('css/utilisateur.css') }}"> 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+{% endblock %}
 {% block body %}
+
 <div class="container">
 <h1 class="text-center mt-3" >Utilisateurs</h1>
 
@@ -28,8 +32,8 @@
                 <td>{{ utilisateur.adresse }}</td>
                 <td>{{ utilisateur.telephone }}</td>
                 <td class"edit">
-                    <a href="{{ path('utilisateur_show', {'id': utilisateur.id}) }}" class="bouton">Voir</a>
-                    <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}" class="bouton">Éditer</a>
+                    <a href="{{ path('utilisateur_show', {'id': utilisateur.id}) }}" class="btn">Voir</a>
+                    <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}" class="btn">Éditer</a>
                     
                 </td>
             </tr>
@@ -48,9 +52,7 @@
 
 {% endblock %}
 
-{% block css %}
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-{% endblock %}
+
 
 {% block js %}
 {{parent()}}

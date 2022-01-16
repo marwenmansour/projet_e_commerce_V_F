@@ -35,12 +35,15 @@
             
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
           <ul class="navbar-nav ml-lg-auto">
+            {% if not is_granted('ROLE_ADMIN') %}
             <li class="nav-item">
                     <a class="nav-link" style="color: #fff" href="{{ path('acceuil') }}" >Accueil</a>
             </li>
+            {% endif %}
             <li class="nav-item">
                     <a class="nav-link"  style="color: #fff" href="{{ path('calendrier')}}">calendrier</a>
             </li>
+            {# {% if not is_granted('ROLE_ADMIN') %} #}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Articles
@@ -51,17 +54,22 @@
                   <a class="dropdown-item" href="{{ path('alimentation') }}">L’alimentation des adolescents</a>
                 </div>
             </li>
-            {% if app.user %}
-             <li class="nav-item">
+            
+            <li class="nav-item">
                 <a class="nav-link" style="color: #fff" href="{{ path('panier') }}">Panier</a>
             </li>
-            {% endif %}
+            
             <li class="nav-item">
                 <a class="nav-link" style="color: #fff" href="{{ path('contact') }}">contact</a>
             </li>
+            {# {% endif %} #}
              {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item">
                 <a class="nav-link" style="color: #fff" href="{{ path('create')}}">Ajouter</a>
+            
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" style="color: #fff" href="{{ path('commandes')}}">Commandes</a>
             
             </li>
             {% endif %}

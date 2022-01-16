@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}commandes{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1 class="text-center mt-3" >Commandes</h1>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.nom }}</td>
+                <td>{{ commande.adresse }}</td>
+                <td>{{ commande.telephone }}</td>
+                <td>{{ commande.PrixTotale }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('commande_delete', {id: commande.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" class="text-center">Aucune commande</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+    
+
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block js %}
+{{parent()}}
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#table').DataTable();
+    });
+</script>
+{% endblock %}

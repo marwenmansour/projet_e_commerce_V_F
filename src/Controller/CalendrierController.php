@@ -113,7 +113,7 @@ class CalendrierController extends AbstractController
             }
             $panier[$id]=intval($quantite);
             $session->set('panier',$panier);
-            return $this->redirectToRoute('calendrier', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('panier', [], Response::HTTP_SEE_OTHER);
         }
         
 
