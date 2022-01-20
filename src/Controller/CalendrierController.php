@@ -130,7 +130,7 @@ class CalendrierController extends AbstractController
         $form->handleRequest($request);
  
         if ($form->isSubmitted() && $form->isValid()) {
-            /*
+          
             $newImg = $form['imageFile']->getData();
             
             if (!empty($newImg)) {
@@ -148,7 +148,7 @@ class CalendrierController extends AbstractController
                 // - renommer la nouvelle img
                 // - upload de la nouvelle l'img
                 // - $fruits_legumes->setImg()
-            } */
+            } 
 
             $entityManager->flush();
 
