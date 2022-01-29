@@ -8,6 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ArticleController extends AbstractController
 {
+
+    //  Définition des controlleurs des pages statiques { Articles }
+
     #[Route('/les_bonnes_pratiques', name: 'pratiques')]
     public function bonnes_pratiques(): Response
     {

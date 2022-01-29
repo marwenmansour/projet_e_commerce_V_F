@@ -4,7 +4,7 @@
 {% block title %}Acceuil | {{ parent() }}{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -15,9 +15,9 @@
 </div>
 
 
-<div class="container" id="carousel">
-<h1>Découvrez nos articles</h1>
-    
+  <div class="container" id="carousel">
+    <h1>Découvrez nos articles</h1>
+      
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
       <ol class="carousel-indicators">
@@ -26,10 +26,8 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>           
       </ol>
 
-    <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner" role="listbox">  
 
-
-        
         <div class="carousel-item" style="background-image: url('images/enfants2.png')">
           <div class="carousel-caption d-none d-md-block">
             <h3>La diversification alimentaire</h3>
@@ -51,7 +49,7 @@
           </div>
         </div>
 
-    </div>
+      </div>
 
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -62,26 +60,25 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-  
+    
 
 
-</div>
+  </div>
 
 <!-- carousel finish -->
 
 <h1>Calendrier des saisons</h1>
 <div class="container" >
 
-<div class="contenant">
-            <div class="texte_centrer-calender">Découvrez le coeur de saison pour consommez des fruits et légumes frais tout au long de l’année.</div>
-            <div id="button">
-              <a href="{{ path('calendrier') }}">  <button class="btn"> Voir  calendrier   </button></a>
-            </div>
-            <img id="cld" src="images/calendar.png" style="opacity: 0.6;"/>
-</div>
-
-
-
+  <div class="contenant">
+    <div class="texte_centrer-calender">
+      Découvrez le coeur de saison pour consommez des fruits et légumes frais tout au long de l’année.
+    </div>
+    <div id="button">
+      <a href="{{ path('calendrier') }}">  <button class="btn"> Voir  calendrier   </button></a>
+    </div>
+    <img id="cld" src="images/calendar.png" style="opacity: 0.6;"/>
+  </div>
 </div>
    
 {% endblock %}

@@ -16,6 +16,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 #[Route('/utilisateur') , IsGranted("ROLE_ADMIN")]
 class UtilisateurController extends AbstractController
 {
+    // fonction index de afficher tous les utilisateurs
+
     #[Route('/', name: 'utilisateur_index', methods: ['GET'])]
     public function index(UtilisateurRepository $utilisateurRepository): Response
     {
@@ -23,6 +25,8 @@ class UtilisateurController extends AbstractController
             'utilisateurs' => $utilisateurRepository->findAll(),
         ]);
     }
+
+    // fonction new responsable de créér un nv utilisateur
 
     #[Route('/new', name: 'utilisateur_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher): Response
@@ -52,6 +56,8 @@ class UtilisateurController extends AbstractController
         ]);
     }
 
+    // fonction show responsable de afficher les données d'un tel {/id} utilisateur
+
     #[Route('/{id}', name: 'utilisateur_show', methods: ['GET'])]
     public function show(Utilisateur $utilisateur): Response
     {
@@ -59,6 +65,8 @@ class UtilisateurController extends AbstractController
             'utilisateur' => $utilisateur,
         ]);
     }
+
+     // fonction edit responsable de mettre à jour les données d'un tel {/id} utilisateur
 
     #[Route('/{id}/edit', name: 'utilisateur_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Utilisateur $utilisateur, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasherInterface): Response
@@ -91,6 +99,8 @@ class UtilisateurController extends AbstractController
             'form' => $form,
         ]);
     }
+
+     // fonction show responsable de supprimer les données d'un tel {/id} utilisateur
 
     #[Route('/{id}', name: 'utilisateur_delete', methods: ['POST'])]
     public function delete(Request $request, Utilisateur $utilisateur, EntityManagerInterface $entityManager): Response

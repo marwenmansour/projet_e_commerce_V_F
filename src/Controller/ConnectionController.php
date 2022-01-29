@@ -9,6 +9,8 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class ConnectionController extends AbstractController
 {
+    // fonction login responsable à un tel utilisateur de se connecter
+
     /**
      * @Route("/login", name="app_login")
      */
@@ -25,6 +27,8 @@ class ConnectionController extends AbstractController
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
+
+    // fonction logout responsable de la déconnection d'un tel utilisateur
 
     /**
      * @Route("/logout", name="app_logout")

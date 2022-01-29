@@ -18,6 +18,10 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 class ContactController extends AbstractController
 {
+    
+    # fonction index responsable de créér un formulaire de contact ainsi que l'envoi par mail à la boite 
+    # gmail de l'administrateur de tel formulaire sousmis par un tel utilisateur
+ 
     #[Route('/contact', name: 'contact')]
     public function index(Request $request, MailerInterface $mailer): Response {
 

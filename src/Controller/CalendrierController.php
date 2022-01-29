@@ -14,7 +14,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class CalendrierController extends AbstractController
-{
+{   
+
+    //   Controlleur du de la fonction affiche responsable de l'affichage des fruits & légumes
+
     #[Route('/calendrier', name: 'calendrier')]
     public function affiche(FruitsLegumesRepository $repository): Response
     {
@@ -73,6 +76,9 @@ class CalendrierController extends AbstractController
     
         
     }
+
+    //  fonction creer responsable de creer des nouveaux produits
+
     #[Route('/calendrier/create', name: 'create'), IsGranted("ROLE_ADMIN")]
     public function creer(Request $request,EntityManagerInterface $entityManager ): Response
     {
@@ -93,6 +99,9 @@ class CalendrierController extends AbstractController
             'formulaire' => $form->createView()
             ]);
     }
+
+    //  fonction delete responsable de supprimer un tel {/id} produit
+
     #[Route('/calendrier/{id}/delete', name: 'delete'), IsGranted("ROLE_ADMIN")]
     public function delete(FruitsLegumes $fruits_legumes, EntityManagerInterface $em) {
         $em->remove($fruits_legumes);
@@ -100,6 +109,9 @@ class CalendrierController extends AbstractController
 
         return $this->redirectToRoute('calendrier');
     }
+
+    //  fonction show responsable de l'ajout d'un tel produit { /id } ainsi que définir la quantité
+    //   de ce dernier pour l'ajouter au panier 
 
     #[Route('calendrier/{id}', name: 'calendrier_show', methods: ['GET']),IsGranted("ROLE_USER")]
     public function show(FruitsLegumes $fruit_legume,$id,SessionInterface $session): Response
@@ -122,7 +134,9 @@ class CalendrierController extends AbstractController
             'passquantity' => intval($passquantity),
         ]);
     }
-   
+    
+    //  fonction edit responsable de mettre à jour les données d'un tel produit {/id}
+
     #[Route('/calendrier/{id}/update', name: 'update'), IsGranted("ROLE_ADMIN")]
     public function edit(int $id, Request $request, FruitsLegumes $fruits_legumes, FruitsLegumesRepository $fruitsLegumesRepository, EntityManagerInterface $entityManager) {
         
@@ -143,11 +157,6 @@ class CalendrierController extends AbstractController
                 if (file_exists($oldImgPath)) {
                     unlink($oldImgPath);
                 }
-
-                // fait automatiquement par Vich :
-                // - renommer la nouvelle img
-                // - upload de la nouvelle l'img
-                // - $fruits_legumes->setImg()
             } 
 
             $entityManager->flush();

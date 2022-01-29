@@ -9,6 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class AcceuilController extends AbstractController
 {
     #[Route('/', name: 'acceuil')]
+
+    // fonction index responsable de afficher un page statique acceuil
+
     public function index(): Response
     { 
        

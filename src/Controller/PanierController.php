@@ -26,6 +26,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class PanierController extends AbstractController
 {
+    // fonction index responsable de collecter les produits ajoutés au panier ainsi que leurs produits totale
+
     #[Route('/panier', name: 'panier'),IsGranted("ROLE_USER")]
     public function index(SessionInterface $session, FruitsLegumesRepository $fruit_legume_repository): Response
     {
@@ -38,12 +40,8 @@ class PanierController extends AbstractController
                
            ];
        }
-   
-      
     //    prix totale//
        $totalItems = 0; 
-    
-       
        foreach($panier_with_data as $item) {
            $totalItem = $item['produit']->getPrix() * $item['quantite'];
            $totalItems += $totalItem ;
@@ -55,6 +53,8 @@ class PanierController extends AbstractController
             'prix_total'=> $totalItems,
         ]);
     }
+
+    //  fonction remove responsable de supprimer un tel produits ajouté au panier du panier
 
     #[Route('/panier/remove/{id}', name: 'supprimer_panier'),IsGranted("ROLE_USER")]
     public function remove($id,SessionInterface $session)
@@ -69,6 +69,9 @@ class PanierController extends AbstractController
         return $this->redirectToRoute('panier');
     }
 
+    // fonction checkout responsable de : 
+            //  1) collecter les données des produits ajoutés au panier    
+            //  2) exploiter le api du STRIPE en y insérant les données collectées (1) pour réaliser le payment
 
     #[Route('/checkout', name: 'checkout')]
     public function checkout(SessionInterface $session_panier,FruitsLegumesRepository $fruit_legume_repository): Response
@@ -124,6 +127,11 @@ class PanierController extends AbstractController
         return $this->redirect($session->url, 303);
     }
 
+    //  la fonction successUrl reponsable de :
+        //  1)  rendre un page statique aprés la réalisation du payement de la part du client
+        //  2)  envoie d'un email au client aprés son payement pour confirmer son payement tout en lui 
+        //      indiquant le montant qu'il a payé dans l e-mail
+
     #[Route('/success-url', name: 'success_url')]
     public function successUrl(MailerInterface $mailer, SessionInterface $session,FruitsLegumesRepository $fruit_legume_repository): Response
     {
@@ -171,8 +179,7 @@ class PanierController extends AbstractController
         return $this->render('panier/cancel.html.twig', []);
     }
 
-    // valider utilisateur coordonnées
-
+    // fonction new responsable de valider les coordonnées de l'utilisateur
 
     #[Route('/commande', name: 'commande_new', methods: ['GET', 'POST'])]
     public function new(Request $request, SessionInterface $session,EntityManagerInterface $entityManager,FruitsLegumesRepository $fruit_legume_repository): Response
@@ -218,8 +225,9 @@ class PanierController extends AbstractController
         ]);
     }
 
-    
-    #[Route('/commandes', name: 'commandes', methods: ['GET'])]
+    // fonction commande responsable d' affiher tous les commandes au admin  
+
+    #[Route('/commandes', name: 'commandes', methods: ['GET']), IsGranted("ROLE_ADMIN")]
     public function commandes(PanierRepository $panierRepository): Response
     {
         return $this->render('panier/commandes.html.twig', [
@@ -227,7 +235,9 @@ class PanierController extends AbstractController
         ]);
     }
 
-    #[Route('commandes/{id}', name: 'commande_delete', methods: ['GET', 'POST'])]
+    // fonction commande_delete responsable de supprimer une tel commande
+
+    #[Route('commandes/{id}', name: 'commande_delete', methods: ['GET', 'POST']), IsGranted("ROLE_ADMIN")]
     public function delete(Request $request,Panier $panier, EntityManagerInterface $entityManager): Response
     {
         
