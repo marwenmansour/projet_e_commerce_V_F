@@ -60,7 +60,7 @@ class FruitsLegumes
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -142,12 +142,13 @@ class FruitsLegumes
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(string|null $image): self
     {
         $this->image = $image;
 
         return $this;
     }
+
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
