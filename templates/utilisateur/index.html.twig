@@ -30,7 +30,13 @@
                 <td>{{ utilisateur.roles ? utilisateur.roles|join(', ') : '' }}</td>
                 <td>{{ utilisateur.email }}</td>
                 <td>{{ utilisateur.adresse }}</td>
-                <td>{{ utilisateur.telephone }}</td>
+                <td>
+                    {% if utilisateur.telephone|length < 10 %}
+                        0{{ utilisateur.telephone }}
+                    {% else %}
+                        {{ utilisateur.telephone }}
+                    {% endif %}
+                </td>
                 <td class"edit">
                     <a href="{{ path('utilisateur_show', {'id': utilisateur.id}) }}" class="btn">Voir</a>
                     <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}" class="btn">Éditer</a>

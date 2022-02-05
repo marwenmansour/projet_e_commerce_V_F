@@ -21,11 +21,8 @@ class ContactController extends AbstractController
     
     # fonction index responsable de créér un formulaire de contact ainsi que l'envoi par mail à la boite 
     # gmail de l'administrateur de tel formulaire sousmis par un tel utilisateur
- 
     #[Route('/contact', name: 'contact')]
     public function index(Request $request, MailerInterface $mailer): Response {
-
-
         $formulaire = $this->createForm(ContactType::class);
         $formulaire->handleRequest($request);
         $notif = '';
@@ -37,22 +34,15 @@ class ContactController extends AbstractController
                     ->from($contact['email'])
                     ->to('fruitslegumes2022@gmail.com')
                     ->subject($contact['sujet'])
-                    
-                    // path of the Twig template to render
                     ->htmlTemplate('contact/email.html.twig')
-
-                    // pass variables (name => value) to the template
                     ->context([
                         'user_mail' => $contact['email'],
                         'tel' => $contact['telephone'],
                         'message' => $contact['message'],
                     ])
             );
-            $notif = 'Votre message a bien été envoyé.';
-            
+            $notif = 'Votre message a bien été envoyé.';  
         }
-        
-
         return $this->render('contact/index.html.twig', [
             'formulaire' => $formulaire->createView(),
             'notif' => $notif,

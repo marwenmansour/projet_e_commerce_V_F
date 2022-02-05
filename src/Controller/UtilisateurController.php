@@ -16,7 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 #[Route('/utilisateur') , IsGranted("ROLE_ADMIN")]
 class UtilisateurController extends AbstractController
 {
-    // fonction index de afficher tous les utilisateurs
+    // fonction index responsable de afficher tous les utilisateurs
 
     #[Route('/', name: 'utilisateur_index', methods: ['GET'])]
     public function index(UtilisateurRepository $utilisateurRepository): Response
