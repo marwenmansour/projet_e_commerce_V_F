@@ -101,9 +101,9 @@ ul{
 
     .navbar-brand
     {
-        font-size: 20px;
+        font-size: 18px;
     }
-    a > img{
+    nav > a > img{
         max-height: 50px!important;
     }
 }
