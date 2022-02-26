@@ -97,3 +97,13 @@ ul{
         font-size: 20px;
     }   
 }
+@media (min-width:350px) and (max-width:500px) {
+
+    .navbar-brand
+    {
+        font-size: 20px;
+    }
+    a > img{
+        max-height: 50px!important;
+    }
+}

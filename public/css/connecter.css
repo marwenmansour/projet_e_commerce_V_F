@@ -71,3 +71,8 @@ body{
 .row{
     align-items: center;
 }
+@media (min-width:350px) and (max-width:500px) {
+    .content{
+        padding:1rem;
+    }
+}

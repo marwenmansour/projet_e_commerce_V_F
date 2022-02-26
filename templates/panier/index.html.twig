@@ -29,8 +29,8 @@
                         {% for item in items %}
                         <tr>
                             <td>{{item.produit.nom}}</td>
-                            <td>{{item.produit.prix}}</td>
-                            <td>{{item.quantite}}</td>
+                            <td>{{item.produit.prix}} </td>
+                            <td>{{item.quantite}} (k)</td>
                             <td> {{ item.quantite * item.produit.prix }} </td>
                             <td> <a class="btn btn-danger" href="{{ path('supprimer_panier',{'id': item.produit.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
@@ -43,7 +43,7 @@
                     <tfoot>
                         <tr>
                         <td colspan ="3" class="text-right">Total : </td>
-                        <td>{{ prix_total }}  (€) </td>
+                        <td>{{ prix_total }}(€) </td>
                         <td></td>
                         </tr>
                     <tfoot>

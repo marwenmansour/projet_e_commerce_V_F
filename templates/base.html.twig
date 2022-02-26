@@ -36,7 +36,7 @@
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link"  style="color: #fff" href="{{ path('calendrier')}}">calendrier</a>
+            <a class="nav-link"  style="color: #fff" href="{{ path('calendrier')}}">Produits</a>
           </li>
           {% if not is_granted('ROLE_ADMIN') %}
           <li class="nav-item dropdown">
@@ -115,7 +115,7 @@
           <div class="text-center">
             <a href="{{ path('contact') }}"><span class="text-muted text-center"> Nous contacter</span></a>
           </div>
-          <ul class="nav col-sm-4 col-4 justify-content-end list-unstyled d-flex">
+          <ul class=" media nav col-sm-4 col-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
             <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
             <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>     
@@ -133,7 +133,7 @@
         </p>
       </div>
       <div class="button-banniere">
-        <a  id="accept-cookie" onclick="set_cookies()">OK, J'accepte</a>
+        <a  id="accept-cookie" onclick="set_cookies()">J'accepte</a>
       </div>
     </div>
 

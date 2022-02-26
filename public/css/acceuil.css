@@ -125,3 +125,13 @@ body{
            
         }
       }
+      @media (min-width:350px) and (max-width:415px) {
+        .texte_centrer {
+            font-size: 40px;
+        }
+      }
+      @media  (min-width:350px) and (max-width:500px){
+        #button{
+          top:82%
+        }
+      }

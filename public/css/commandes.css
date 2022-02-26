@@ -130,3 +130,27 @@ a {
 .fa {
     color: #FF5722
 }
+
+@media  (min-width:350px) and (max-width:765px){
+    div > span{
+      display: block;
+    }
+    .info-wrap > .row{
+        text-align: center;
+    }
+  }
+  @media  (min-width:350px) and (max-width:465px){
+   .bottom-wrap > a {
+       display: none!important;
+       
+   } 
+   .bottom-wrap{
+        padding: 0!important;
+   }
+   .price-wrap{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+   }
+  }

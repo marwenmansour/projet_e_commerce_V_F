@@ -29,7 +29,6 @@ main{
 
   h1{
       text-align: center;
-      text-align: justify;
       font-size: 50px;
       font-weight: 600;
   }
@@ -54,5 +53,10 @@ main{
 @media screen and (min-width: 540px){
   .texte_centrer {
       font-size: 50px;
+  }
+}
+@media (min-width:350px) and (max-width:415px) {
+  .texte_centrer {
+      font-size: 40px;
   }
 }

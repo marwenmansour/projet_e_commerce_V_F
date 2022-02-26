@@ -57,3 +57,26 @@ body{
     background: #fff;
     color: #55ac56;
   }
+  @media (min-width:350px) and (max-width:415px) {
+    
+    .banniere{
+      padding: 5px;
+    }
+    .button-banniere{
+      padding: 15px 0px;
+    }
+    .text-banniere{
+      padding: 2px 2px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .button-banniere a{
+      padding: 5px 3.5px;
+      font-size: 16px;
+    }
+}
+@media  (min-width:350px) and (max-width:500px){
+  .media{
+    display: none!important;
+  }
+}

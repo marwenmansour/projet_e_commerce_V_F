@@ -50,31 +50,6 @@ body{
     font-style:normal;
     font-weight :600 !important;
 }
-/*nav bar */
-.navbar{
-    padding: 10px 10px;
-    font-family: 'Times New Roman', Times, serif;
-
-}
-
-.navbar-brand{
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 2em;
-    font-family: 'Times New Roman', Times, serif;
-    color: #A3CB38;
-}
-
-.nav-item{
-    font-weight: 600;
-    text-transform: uppercase;
-}
-.navbar-light .navbar-nav .nav-item .nav-link:hover,
-.navbar-light .navbar-nav .nav-item.active .nav-link{
-    background: #A3CB38;
-    color: #fff;
-}
-
 
 .btn {
     background-color: #A3CB38;
@@ -91,4 +66,9 @@ body{
 .row{
     justify-content: center;
     align-items: center;
+}
+@media (min-width:350px) and (max-width:500px) {
+    .content{
+        padding:1rem;
+    }
 }

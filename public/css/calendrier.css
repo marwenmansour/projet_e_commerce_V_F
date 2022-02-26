@@ -263,6 +263,33 @@ flip card
         font-size: 30px;
     }
 }
+@media  (min-width:350px) and (max-width:720px){
+   
+    .top-card>h4{
+        font-size: 25px;
+        font-weight: bold;
+        padding-bottom: 15px;
+    }
+    a.btn{
+        font-weight: 650;
+        font-size: 20px;
+        margin-bottom: 35px;
+        margin-top: 15px;
+    }
+    a.btn_panier{
+        font-weight: 750;
+        font-size: 15px;
+    }
+    .top-card{
+        margin-bottom: 0;
+      }
+    .card-text{
+        font-size: 20px;
+    }
+    #titre{
+        font-size: 3em;
+    }
+}
 
 
 
