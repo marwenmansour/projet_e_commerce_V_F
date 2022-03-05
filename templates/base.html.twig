@@ -1,4 +1,4 @@
-<doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
   <head>
@@ -21,7 +21,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #55ac56;">
-      <a href="{{ path('acceuil') }}" class="pull-left"><img style="max-height:65px;" src="{{ asset('/images/my_logo.png') }}"></a> 
+      <a href="{{ path('acceuil') }}" class="pull-left"><img style="max-height:65px;" src="{{ asset('/images/my_logo.png') }}" alt="logo"></a> 
       <a class="navbar-brand" style="color: #fff" href="{{ path('acceuil') }}"> Légumes & fruits</a>
       <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,24 +30,33 @@
             
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
         <ul class="navbar-nav ml-lg-auto">
+
           {% if not is_granted('ROLE_ADMIN') %}
+
           <li class="nav-item">
             <a class="nav-link" style="color: #fff" href="{{ path('acceuil') }}" >Accueil</a>
           </li>
+
           {% endif %}
+
           <li class="nav-item">
             <a class="nav-link"  style="color: #fff" href="{{ path('calendrier')}}">Produits</a>
           </li>
+
           {% if not is_granted('ROLE_ADMIN') %}
+
           <li class="nav-item dropdown">
+
             <a class="nav-link dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Articles
             </a>
+
             <div class="dropdown-menu" style="z-index:10000!important;" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ path('pratiques') }}">Les bonnes pratiques</a>
               <a class="dropdown-item" href="{{ path('diversification') }}">La diversification alimentaire</a>
               <a class="dropdown-item" href="{{ path('alimentation') }}">L’alimentation des adolescents</a>
             </div>
+
           </li>
             
           <li class="nav-item">
@@ -78,14 +87,19 @@
           {% endif %}
 
         </ul>
+
         {% if not app.user %}
+
         <ul class="navbar-nav ml-auto">
-          <a href="{{ path('app_login') }}"><button class="btn">Se connecter</button></a>   
+          <li><a class="btn" href="{{ path('app_login') }}">Se connecter</a></li>
         </ul>
+
         {% else %}
+
         <ul class="navbar-nav ml-auto">
-          <a href="{{ path('app_logout') }}"><button class="btn">Se déconnecter</button></a>   
+          <li><a class="btn" href="{{ path('app_logout') }}">Se déconnecter</a></li>
         </ul>
+
         {% endif %}
       </div>
     </nav>
@@ -126,7 +140,7 @@
     </div>
 
     {% if not app.request.cookies.get('accept-cookie') %}
-    <div id="banniere"class="banniere">
+    <div id="banniere" class="banniere">
       <div class="text-banniere">
         <p> Notre site utilise des cookies pour une meilleure expérience <br>
             Si vous acceptez ici , vous acceptez nos <a href="{{ path('cgv') }}"> mentions légales </a> 

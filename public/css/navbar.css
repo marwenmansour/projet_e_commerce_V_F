@@ -78,6 +78,12 @@ a{
     margin: 3px;
     padding: 4px;
 }
+a{
+    color: #fff;
+}
+a:hover{
+    color: #55ac56;
+}
 ul{
     align-items: center;
     text-align: center;
